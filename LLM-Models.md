@@ -1,4 +1,4 @@
-# Guía de Modelos LLM y Interfaces Gráficas para Ejecución Local
+# Modelos LLM
 
 Este documento presenta una lista de modelos de lenguaje que puedes correr localmente en CPU con aproximadamente 13 GB de RAM y un procesador Intel i7-13700H, junto con frameworks e interfaces gráficas compatibles para facilitar su uso.
 
