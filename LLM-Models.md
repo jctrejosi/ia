@@ -4,7 +4,7 @@ Este documento presenta una lista de modelos de lenguaje que puedes correr local
 
 ---
 
-## Modelos LLM compatibles con CPU (13 GB RAM)
+## Modelos LLM compatibles con CPU i7 y RAM 8 GB
 
 | Modelo                      | Tamaño (paráms.) | Cuantizaciones CPU                    | RAM recomendada | Casos de uso especializados                              | Idiomas                  | Formato | Fuente confiable           | Frameworks compatibles                            |
 |-----------------------------|------------------|-------------------------------------|-----------------|---------------------------------------------------------|--------------------------|---------|----------------------------|-------------------------------------------------|
@@ -21,14 +21,26 @@ Este documento presenta una lista de modelos de lenguaje que puedes correr local
 
 ---
 
+## Modelos de Gama Media Compatibles con CPU i7 y 13 GB RAM
+
+A continuación, se presentan modelos de lenguaje (LLMs) de aproximadamente 8 a 13 mil millones de parámetros, optimizados para correr en CPU sin GPU, usando hasta 13 GB de RAM. Estos modelos están cuantizados (Q4_K, Q5_K, etc.) para ajustarse a estas restricciones y son compatibles con frameworks como llama.cpp, GPT4All o KoboldCpp.
+
+| Nombre del modelo          | Parámetros | Cuantizaciones disponibles                      | RAM recomendada | Casos de uso                                      | Idiomas soportados          | Formato | Fuente de descarga                                   |
+|---------------------------|------------|------------------------------------------------|-----------------|--------------------------------------------------|----------------------------|---------|------------------------------------------------------|
+| **Llama 2 13B**           | 13B        | Q2_K, Q3_K (S/M/L), Q4_0, Q4_K_S/M, Q4_1, Q5_0, Q5_K_S/M | ≈12–13 GB      | Asistente conversacional e inferencia de texto   | Inglés                     | GGUF    | Hugging Face (TheBloke/Llama-2-13B-GGUF)             |
+| **LLaMA 13B**             | 13B        | Q2_K, Q3_K (S/M/L), Q4_0, Q4_K_S/M, Q5_0, Q5_K_S/M           | ≈12 GB        | Generación de texto general, chat e instrucciones | Inglés                     | GGUF    | Hugging Face (TheBloke/LLaMA-13b-GGUF)               |
+| **Vicuna 13B v1.5**       | 13B        | Q2_K, Q3_K (S/M/L), Q4_0, Q4_K_S/M, Q5_0, Q5_K_S/M           | ≈12 GB        | Chatbot conversacional                             | Inglés (limitado multilingüe) | GGUF  | Hugging Face (TheBloke/vicuna-13B-v1.5-GGUF)         |
+| **WizardLM 13B V1.2**     | 13B        | Q2_K, Q3_K (S/M/L), Q4_0, Q4_K_S/M, Q5_0, Q5_K_S/M           | ≈12 GB        | Asistente conversacional e instructivo            | Inglés                     | GGUF    | Hugging Face (TheBloke/WizardLM-13B-V1.2-GGUF)       |
+| **WizardLM 13B Uncensored** | 13B      | Q2_K, Q3_K (S/M/L), Q4_0, Q4_K_S/M, Q5_0, Q5_K_S/M           | ≈12 GB        | Asistente conversacional sin filtros              | Inglés                     | GGUF    | Hugging Face (TheBloke/WizardLM-13B-Uncensored-GGUF) |
+
+> **Nota:** Todos estos modelos están cuantizados para ajustarse a la memoria RAM disponible y correr eficientemente en CPU sin requerir GPU dedicada. Son ideales para tareas de chat, generación de texto y asistencia conversacional en inglés, y compatibles con frameworks populares como llama.cpp, GPT4All y KoboldCpp.
+
 ## Interfaces gráficas compatibles con modelos LLM
 
-| Interfaz gráfica                                       | Compatibilidad                           | Funcionalidad clave                          | Soporte para modelos         | Links                                                                                                    |
-| ----------------------------------------------------- | --------------------------------------- | -------------------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------- |
-| **Text Generation Web UI** (o `text-generation-webui`) | Soporta GGML, GGUF, llama.cpp, GPT4All | Chat, generación texto, ajuste de parámetros | Modelos 7B, 13B, cuantizados | [https://github.com/oobabooga/text-generation-webui](https://github.com/oobabooga/text-generation-webui) |
-| **Hugging Face Spaces (local)**                        | Carga modelos en HuggingFace con GUI web | Chat y demo web                              | Modelos LLaMA 7B y más       | [https://huggingface.co/spaces](https://huggingface.co/spaces)                                           |
-| **KoboldCpp**                                          | Compatible con GGML, llama.cpp           | Chat, generación narrativa                   | Modelos 7B, 13B, optimizados | [https://github.com/KoboldAI/KoboldCpp](https://github.com/KoboldAI/KoboldCpp)                           |
-| **Vicuna GUI** (basada en llama.cpp)                   | Especializada en modelos Vicuna 7B       | Chat para asistentes AI                      | Vicuna 7B y compatibles      | [https://github.com/lm-sys/FastChat](https://github.com/lm-sys/FastChat)                                 |
-| **Alpaca-LoRA GUI**                                    | Carga modelos Alpaca y variantes LoRA    | Chat y fine-tuning simple                    | Alpaca 7B, Vicuna            | [https://github.com/tloen/alpaca-lora](https://github.com/tloen/alpaca-lora)                             |
-
----
+| Interfaz gráfica                                       | Compatibilidad                           | Funcionalidad clave                          | Soporte para modelos             | Links                                                                                                    |
+| ----------------------------------------------------- | --------------------------------------- | -------------------------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Text Generation Web UI** (o `text-generation-webui`) | Soporta GGML, GGUF, llama.cpp, GPT4All | Chat, generación texto, ajuste de parámetros | Modelos 7B a 13B, cuantizados    | [https://github.com/oobabooga/text-generation-webui](https://github.com/oobabooga/text-generation-webui) |
+| **Hugging Face Spaces (local)**                        | Carga modelos en HuggingFace con GUI web | Chat y demo web                              | Modelos LLaMA 7B, 13B y más     | [https://huggingface.co/spaces](https://huggingface.co/spaces)                                           |
+| **KoboldCpp**                                          | Compatible con GGML, llama.cpp           | Chat, generación narrativa                   | Modelos 7B a 13B, optimizados    | [https://github.com/KoboldAI/KoboldCpp](https://github.com/KoboldAI/KoboldCpp)                           |
+| **Vicuna GUI (FastChat)**                              | Especializada en modelos Vicuna 7B y 13B | Chat para asistentes AI                      | Vicuna 7B y 13B                 | [https://github.com/lm-sys/FastChat](https://github.com/lm-sys/FastChat)                                 |
+| **Alpaca-LoRA GUI**                                    | Carga modelos Alpaca y variantes LoRA    | Chat y fine-tuning simple                    | Alpaca 7B, Vicuna               | [https://github.com/tloen/alpaca-lora](https://github.com/tloen/alpaca-lora)                             |
